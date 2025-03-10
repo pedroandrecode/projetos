@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>PEDRO ANDRÉ</h1>
+    <div class="fundo">
+        <div class="imc">
+            <h1>IMC</h1>
+            <p>Peso em Kg:</p> <input type="number" name="peso" id="ipeso"> <br>
+            <p>Altura em Metros:</p> <input type="number" name="altura" id="ialtura"> <br>
+            <input type="button" value="Calcular" id="calcular" onclick="calcular()">
+            <p id="resultado"></p>
+        </div>
+        
+    </div>
+
+    <script>
+        function calcular() {
+            var kg = Number(document.getElementById('ipeso').value);
+            var altura = Number(document.getElementById('ialtura').value);
+            var tot = kg / (altura**2);
+            if (kg, altura) {
+                document.getElementById('resultado').innerHTML = tot.toFixed(1)
+            } else {
+                window.alert('ERRO! dados faltando')
+            }
+            
+        }
+    </script>
+</body>
+</html>

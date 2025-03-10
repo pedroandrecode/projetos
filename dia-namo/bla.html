@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blabla</title>
+    <style>
+        body {
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .painel {
+            background-color: white;
+            width: 90%; /* Usa uma porcentagem para se adaptar a diferentes tamanhos de tela */
+            max-width: 400px;
+            height: auto;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        #sim, #nao {
+            height: 40px;
+            width: 80px;
+            background-color: red;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            font-size: 14px;
+            transition: 0.1s ease;
+        }
+
+        #sim {
+            left: 20%;
+            bottom: 20px;
+        }
+
+        #nao {
+            left: 55%;
+            bottom: 20px;
+        }
+
+        img {
+            width: 100%; /* Para tornar a imagem responsiva */
+            max-width: 300px;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        h1, h2 {
+            font-size: 20px;
+            margin: 5px;
+        }
+
+        /* Ajustes específicos para telas menores */
+        @media (max-width: 400px) {
+            #sim, #nao {
+                width: 70px;
+                height: 35px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="painel">
+        <h1>Pedro</h1>
+        <h2>Pedinho</h2>
+        <button id="sim">Sim!</button>
+        <button id="nao"  onmouseenter="fuja()" onclick="fuja()">Não</button>
+
+        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="Ursinho apaixonado">
+    </div>
+
+    <script>
+        function fuja() {
+            var botaoNao = document.getElementById('nao');
+            var painel = document.querySelector('.painel');
+
+            var larguraPainel = painel.clientWidth;
+            var alturaPainel = painel.clientHeight;
+
+            // Cria uma margem segura para não sair dos limites
+            var margemSegura = 20;
+
+            var maxX = larguraPainel - botaoNao.offsetWidth - margemSegura;
+            var maxY = alturaPainel - botaoNao.offsetHeight - margemSegura;
+
+            var aleatorioX = Math.floor(Math.random() * maxX) + margemSegura / 2;
+            var aleatorioY = Math.floor(Math.random() * maxY) + margemSegura / 2;
+
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+        }
+    </script>
+</body>
+</html>
